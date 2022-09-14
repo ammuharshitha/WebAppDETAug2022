@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MVCProgams.Filters;
 using MVCProgams.Models;
 using System.Diagnostics;
 using System.Security.Cryptography;
@@ -13,16 +14,15 @@ namespace MVCProgams.Controllers
         {
             _logger = logger;
         }
-        
-        public IActionResult Hello(string name,string loc,string contact)
+
+        public IActionResult Hello(string name, string loc, string contact)
         {
             ViewBag.UserName = name;
             ViewBag.Location = loc;
             ViewBag.Contact = contact;
             return View();
         }
-
-
+        [MyLog]
         public IActionResult Index()
         {
             return View();
